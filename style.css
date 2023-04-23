@@ -1,0 +1,121 @@
+@import url("https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&display=swap");
+
+*,
+*::after,
+*::before {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #16161a;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  font-family: "Merriweather", serif;
+}
+
+main {
+  background-color: #16161a;
+
+  padding: 3rem;
+  color: white;
+  width: 85vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 50px;
+  position: relative;
+}
+
+main::after {
+  content: "";
+  top: -10px;
+  z-index: -1;
+  position: absolute;
+  width: calc(100% + 20px);
+  height: calc(100% + 20px);
+  background: linear-gradient(45deg, #0891b2, #be123c, #d97706, #b91c1c);
+  animation: gradient-animation 1s infinite;
+}
+
+@keyframes gradient-animation {
+  0% {
+    background: linear-gradient(45deg, #0891b2, #be123c, #d97706, #b91c1c);
+  }
+  100% {
+    background: linear-gradient(45deg, green, yellow, black, white);
+  }
+}
+
+main .quote {
+  font-weight: 500;
+  font-size: 2.5rem;
+  text-align: center;
+  letter-spacing: 2.5px;
+  margin-bottom: 15px;
+}
+
+main .author {
+  text-align: right;
+  font-weight: 100;
+  font-size: 2rem;
+  color: #94a1b2;
+}
+
+main button {
+  background-color: rgba(255, 255, 255, 0.1);
+  font-weight: bold;
+  padding: 1rem 1.5rem;
+  text-align: center;
+  font-size: 1rem;
+  border: 3px solid white;
+  border-radius: 10px;
+  color: white;
+  cursor: pointer;
+  position: relative;
+  z-index: 10;
+  transition: 0.3s;
+}
+
+main button:hover {
+  transform: translateY(-10px);
+  border: 3px #0e7490 solid;
+}
+
+main button:hover::after,
+main button:hover::before {
+  width: 50%;
+  height: 100%;
+  border-radius: 0px;
+}
+
+main button:hover::after {
+  right: 0;
+}
+main button:hover::before {
+  left: 0;
+}
+
+main button::after,
+main button::before {
+  content: "";
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: #0e7490;
+  border-radius: 50%;
+  z-index: -1;
+  transition: 0.3s ease-out;
+}
+
+main button::before {
+  left: 5px;
+}
+main button::after {
+  right: 5px;
+}
