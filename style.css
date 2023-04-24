@@ -8,6 +8,14 @@
   box-sizing: border-box;
 }
 
+:root {
+  --gradient-clr-1: #052b2f;
+  --gradient-clr-2: #073438;
+  --gradient-clr-3: #0e4b50;
+  --gradient-clr-4: #2d8f85;
+  --gradient-clr-5: #637c54;
+}
+
 body {
   background-color: #16161a;
   display: flex;
@@ -19,7 +27,6 @@ body {
 
 main {
   background-color: #16161a;
-
   padding: 3rem;
   color: white;
   width: 85vw;
@@ -30,23 +37,42 @@ main {
   position: relative;
 }
 
-main::after {
+main::after,
+main::before {
   content: "";
   top: -10px;
   z-index: -1;
   position: absolute;
   width: calc(100% + 20px);
   height: calc(100% + 20px);
-  background: linear-gradient(45deg, #0891b2, #be123c, #d97706, #b91c1c);
-  animation: gradient-animation 1s infinite;
+
+  background-color: #fa8bff;
+  background-image: linear-gradient(
+    45deg,
+    #97d9e1,
+    #fa8bff,
+    #fad961,
+    #2bd2ff,
+    #2bff88,
+    #2b68ff
+  );
+  background-size: 300%;
+  background-position: 0%;
+  animation: gradient-animation 20s linear infinite;
+}
+
+main::before {
+  filter: blur(1.5rem);
 }
 
 @keyframes gradient-animation {
-  0% {
-    background: linear-gradient(45deg, #0891b2, #be123c, #d97706, #b91c1c);
-  }
+  0%,
   100% {
-    background: linear-gradient(45deg, green, yellow, black, white);
+    background-position: 0%;
+  }
+
+  50% {
+    background-position: 100%;
   }
 }
 
@@ -81,7 +107,7 @@ main button {
 }
 
 main button:hover {
-  transform: translateY(-10px);
+  transform: translateY(-5px);
   border: 3px #0e7490 solid;
 }
 
